@@ -7,7 +7,7 @@ export default [
         date: moment().format('MMMM DD, YYYY'),
         categories: ['Science'],
         link: '#',
-        image: 'why_scientists_are_talking.jpeg',
+        image: 'why_scientists_are_talking.jpg',
     },
     {
         title: 'Angular vs React: The 2021 winner is...',
