@@ -29,7 +29,7 @@ export default function PostGrid ({posts}) {
                     <div className="post-container">
                         <figure>
                             <Link to={post.link}>
-                                <img src={require(`../../assets/images/${post.image}`)} alt={post.image}/>
+                                <img src={`/assets/images/${post.image}`} alt={post.image}/>
                             </Link>
                         </figure>
                         <TagRow tags={post.categories} />

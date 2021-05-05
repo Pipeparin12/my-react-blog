@@ -4,8 +4,9 @@ import {TagRow} from './'
 
 export default function MasonryPost ({post, tagsOnTop}) {
     const windowWidth = window.innerWidth
-    const imageBackground = {backgroundImage: `url("${require(`../../assets/images/${post.image}`)}")`}
-
+    console.log(post.image)
+    const imageBackground = {backgroundImage: `url("/assets/images/${post.image}")`}
+    console.log(imageBackground)
     const style = windowWidth > 900 ? {...imageBackground, ...post.style} : imageBackground
 
     return (
