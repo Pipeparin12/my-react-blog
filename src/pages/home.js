@@ -10,18 +10,6 @@ const trendingConfig = {
 }
 
 const featuredConfig = {
-    0: {
-        gridArea: '1 / 1 / 2 / 3',
-        height: '300px'
-    },
-    1: {
-        height: '300px'
-    },
-    3: {
-        height: '630px',
-        marginLeft: '30px',
-        width: '630px'
-    }
 }
 
 const mergeStyles = function (posts, config) {
@@ -37,7 +25,7 @@ const recentPosts = [...trending, ...featured, ...featured]
 mergeStyles(trending, trendingConfig)
 mergeStyles(featured, featuredConfig)
 
-const lastFeatured = featured.pop()
+// const lastFeatured = featured.pop()
 
 export default function Home () {
     return ( 
@@ -46,7 +34,7 @@ export default function Home () {
             <div className="row">
                 <section className="featured-posts-container">
                 <PostMasonry posts={featured} columns={2} tagsOnTop={true}/>
-                <MasonryPost post={lastFeatured} tagsOnTop={true} />
+                {/* <MasonryPost post={lastFeatured} tagsOnTop={true} /> */}
                 </section>
             </div>
         </section>
