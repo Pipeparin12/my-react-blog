@@ -10,6 +10,9 @@ const trendingConfig = {
 }
 
 const featuredConfig = {
+    0: {
+        gridArea: ' 1 / 2 / 2 / 3'
+    }
 }
 
 const mergeStyles = function (posts, config) {

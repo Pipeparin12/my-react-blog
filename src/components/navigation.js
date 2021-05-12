@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
-import { Avatar } from 'antd'
 
 const navLinks = [
     {
@@ -8,13 +7,13 @@ const navLinks = [
         path: '/'
     },
     {
-        titles: 'Contact Us',
-        path: '/contact-us'
+        titles: 'Blog',
+        path: '/blog'
     },
     {
         titles: 'Login',
         path: '/login'
-    }
+    },
 ]
 
 export default function Navigation({user}) {
@@ -33,7 +32,6 @@ export default function Navigation({user}) {
                 }
                 </ul>
                 <span className="menu-avatar-container">
-                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" size={38} />
                 <span className="menu-avatar-name">{ `${user.firstName} ${user.lastName}` }</span>
                 </span>
             </div>

@@ -32,7 +32,7 @@ export default function PostGrid ({posts}) {
                                 <img src={`/assets/images/${post.image}`} alt={post.image}/>
                             </Link>
                         </figure>
-                        <TagRow tags={post.categories} />
+                        {/* <TagRow tags={post.categories} /> */}
                         <h2>{post.title}</h2>
                         <p className="author-text">
                             <span>
