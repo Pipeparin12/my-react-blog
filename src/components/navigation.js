@@ -7,8 +7,8 @@ const navLinks = [
         path: '/'
     },
     {
-        titles: 'Blog',
-        path: '/blog'
+        titles: 'Create Blog',
+        path: '/create-blog'
     },
     {
         titles: 'Login',

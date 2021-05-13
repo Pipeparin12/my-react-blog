@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import '../assets/scss/_blog.scss'
 
-export default function Blog () {
+export default function EditBlog () {
     return (
       <main className="blog-container">
         <section className="blog-content">
@@ -24,13 +24,18 @@ export default function Blog () {
               <div className="blog-info">
                 <h4>Written by : Author</h4>
               </div>
-
-              <div className="edit-info">
-                <Link to="/blog">
-                  <button>Submit</button>
+              
+              <div className="delete-info">
+                <Link to="/home">
+                  <button>Delete Blog</button> 
                 </Link>
               </div>
 
+              <div className="edit-info">
+                <Link to="/blog">
+                  <button>Submit</button> 
+                </Link>
+              </div>
           </section> 
       </main>   
     )

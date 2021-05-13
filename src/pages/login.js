@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import FormData from "form-data"
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -9,6 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import '../assets/scss/_login.scss'
+import axios from 'axios'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -32,6 +35,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const signIn = async () => {
+    console.log(username)
+    const formData = new FormData()         
+    formData.append("username", username)         
+    formData.append("password", password)
+    const res = await axios.post("http://localhost:8080/ProjectBackEnd_war_exploded/SigninServlet", formData)
+    console.log(res)
+  }
+
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
 
   return (
     <Container className="login-container" component="main" maxWidth="xs">
@@ -51,6 +65,7 @@ export default function SignIn() {
             name="usename"
             autoComplete="username"
             autoFocus
+            onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -62,13 +77,15 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={(e) => setPassword(e.target.value)}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
           <Button
-            type="submit"
+            onClick={signIn}
+            // type="submit"
             fullWidth
             variant="contained"
             color="primary"

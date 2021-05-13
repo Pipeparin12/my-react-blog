@@ -45,6 +45,14 @@
         margin-right: auto;
         padding: 15px;
     }
+
+    .delete-info{
+        padding: 20px;
+    }
+
+    .edit-info{
+        padding:20px
+    }
 }
 
 @media screen and (max-width: 1200px){
@@ -52,6 +60,19 @@
         
         .img{
             width: 90%;
+        }
+
+        .input-img{
+            width: 80%;
+            padding-left: 30px;
+        }
+
+        .edit-area{
+            width: 90%;
+        }
+
+        .blog-text{
+            padding-left: 60px;
         }
     }
 }

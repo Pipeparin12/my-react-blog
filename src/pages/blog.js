@@ -1,8 +1,11 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import '../assets/scss/_blog.scss'
 
 export default function Blog () {
+  const {id} = useParams()
+  console.log(id)
+  
     return (
       <main className="blog-container">
         <section className="blog-content">
