@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import '../assets/scss/_login.scss'
-import axios from 'axios'
+import axios from '../axios'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -37,11 +37,13 @@ export default function SignIn() {
   const classes = useStyles();
   const signIn = async () => {
     console.log(username)
+    console.log(password)
     const formData = new FormData()         
     formData.append("username", username)         
     formData.append("password", password)
-    const res = await axios.post("http://localhost:8080/ProjectBackEnd_war_exploded/SigninServlet", formData)
+    const res = await axios.post("SigninServlet", formData)
     console.log(res)
+    window.location.href = '/home';
   }
 
   const [username, setUsername] = useState("")

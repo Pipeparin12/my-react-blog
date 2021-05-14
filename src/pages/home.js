@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {PostMasonry, PostGrid} from '../components/common'
 // import {MasonryPost} from '../components/common'
 import trending from '../assets/mocks/trending'
 import featured from '../assets/mocks/featured'
+import axios from '../axios'
 
 const trendingConfig = {
     1: {
@@ -32,12 +33,20 @@ mergeStyles(featured, featuredConfig)
 // const lastFeatured = featured.pop()
 
 export default function Home () {
+
+    const [blog, setBlog] = useState([])
+    useEffect(() => {
+    axios.get("ShowAllBlogServlet").then((res) => {
+        setBlog(res.data)
+    })
+  },[])
+
     return ( 
         <main className="home">
             <section className="container">
             <div className="row">
                 <section className="featured-posts-container">
-                <PostMasonry posts={featured} columns={2} tagsOnTop={true}/>
+                <PostMasonry posts={blog} columns={2} tagsOnTop={true}/>
                 {/* <MasonryPost post={lastFeatured} tagsOnTop={true} /> */}
                 </section>
             </div>
@@ -45,13 +54,13 @@ export default function Home () {
         <section className="bg-white">
         <section className="container">
         <div className="row">
-        <PostGrid posts={recentPosts} />
+        <PostGrid posts={blog} />
         </div>     
         </section>
         </section>
         <section className="container">
         <div className="row">
-        <PostMasonry posts={trending} columns={3}/>
+        <PostMasonry posts={blog} columns={3}/>
         </div>     
         </section>
         </main>

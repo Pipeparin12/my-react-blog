@@ -24,6 +24,8 @@ function App() {
           <Route path="/home" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/create-blog" component={CreateBlog} />
+          <Route path="/edit-blog/:id" component={EditBlog} />
           <Route path="/" render={() => <Redirect to="/home" />} />
           <Route component={() => 404} />
         </Switch>

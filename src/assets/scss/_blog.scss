@@ -4,6 +4,10 @@
     .title{
         text-align: center;
         font-size: 25px;
+
+        .topic{
+            text-align: center;
+        }
     }
 
     .img{
@@ -21,6 +25,10 @@
         width: 30%;
         text-align: justify;
         padding: 20px;
+
+        .topic{
+            text-align: center;
+        }
     }
 
     .blog-text{
@@ -29,7 +37,14 @@
         margin-right: auto;
         font-size: larger;
         text-align: justify;
+        width: 100%;
         padding: 20px;
+
+        .topic{
+            text-align: center;
+            
+
+        }
     }
 
     .blog-info{

@@ -28,8 +28,8 @@ export default function PostGrid ({posts}) {
                 {paginatedPosts.map((post, index) => (
                     <div className="post-container">
                         <figure>
-                            <Link to={post.link}>
-                                <img src={`/assets/images/${post.image}`} alt={post.image}/>
+                            <Link to={`/blog/${post.blog_id}`}>
+                                <img src={post.image_url} alt={post.image}/>
                             </Link>
                         </figure>
                         {/* <TagRow tags={post.categories} /> */}
@@ -41,14 +41,14 @@ export default function PostGrid ({posts}) {
                                     {post.author}
                                 </Link>
                             </span>
-                            <span>
+                            {/* <span>
                                 - {post.date}
-                            </span>
+                            </span> */}
                         </p>
                         <p className="description-text">
                             {post.description}
                         </p>
-                        <Link to={post.link}>Read More...</Link>
+                        <Link to={`/blog/${post.blog_id}`}>Read More...</Link>
                     </div>
                 ))}
             </section>

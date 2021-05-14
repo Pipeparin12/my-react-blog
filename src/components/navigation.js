@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 
 const navLinks = [
@@ -19,6 +19,9 @@ const navLinks = [
 export default function Navigation({user}) {
     const [menuActive, setMenuActive] = useState(false)
 
+    // const[firstname, setFirstname] = useState({})
+    // const[lastname, setLastname] = useState({})
+
     return (
         <nav className="site-navigation">
             <span className="menu-title">Blog</span>
@@ -31,9 +34,9 @@ export default function Navigation({user}) {
                     ))
                 }
                 </ul>
-                <span className="menu-avatar-container">
+                {/* <span className="menu-avatar-container">
                 <span className="menu-avatar-name">{ `${user.firstName} ${user.lastName}` }</span>
-                </span>
+                </span> */}
             </div>
             <i className="ionicons icon ion-ios-menu" onClick={() => setMenuActive(!menuActive)} />
         </nav>

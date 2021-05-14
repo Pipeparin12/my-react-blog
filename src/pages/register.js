@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import '../assets/scss/_login.scss'
+import axios from '../axios'
+import FormData from 'form-data'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -31,6 +33,24 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const signUp = async () => {
+    console.log(firstname)
+    console.log(lastname)
+    console.log(username)
+    console.log(password)
+    const formData = new FormData()
+    formData.append("firstname", firstname)
+    formData.append("lastname", lastname)
+    formData.append("username", username)
+    formData.append("password", password)
+    const res = await axios.post("SignupServlet", formData)
+    console.log(res)
+  }
+
+  const [firstname, setFirstname] = useState("")
+  const [lastname, setLastname] = useState("")
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
 
   return (
     <Container className="login-container" component="main" maxWidth="xs">
@@ -51,6 +71,7 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                onChange={(e) => setFirstname(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -62,6 +83,7 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                onChange={(e) => setLastname(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -73,6 +95,7 @@ export default function SignUp() {
                 label="Username"
                 name="username"
                 autoComplete="username"
+                onChange={(e) => setUsername(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -85,11 +108,13 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Grid>
           </Grid>
           <Button
-            type="submit"
+            onClick={signUp}
+            // type="submit"
             fullWidth
             variant="contained"
             color="primary"
